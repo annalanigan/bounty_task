@@ -60,14 +60,24 @@ class Bounty
       db.close
   end
 
-  def self.find
+  def self.all
     db = PG.connect( {dbname: 'bounties', host: 'localhost'} )
     sql = 'SELECT * FROM bounties'
     values = []
+    db.prepare('all', sql)
+    found_bounty = db.exec_prepared('all', values)
+    db.close
+    return found_bounty.map { |item| Bounty.new(item)}
+  end
+
+  def self.find(id)
+    db = PG.connect( {dbname: 'bounties', host: 'localhost'} )
+    sql = 'SELECT * FROM bounties WHERE id = $1'
+    values = [id]
     db.prepare('find', sql)
     found_bounty = db.exec_prepared('find', values)
     db.close
-    return found_bounty.map { |item| Bounty.new(item)}
+    return found_bounty.map { |item| Bounty.new(item)}[0]
   end
 
 

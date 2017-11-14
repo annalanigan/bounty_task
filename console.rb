@@ -22,10 +22,24 @@ bounty7 = Bounty.new(
   'favourite_weapon' => 'Teeth'}
 )
 
-bounty7.save
-bounty8.save
+bounty9 = Bounty.new(
+  {'name' => 'Shockolate Santa',
+  'species' => 'Festive Demon',
+  'bounty_value' => '1',
+  'favourite_weapon' => 'Bag Of Electrified Presents'}
+)
 
-p Bounty.find.first
+bounty10 = Bounty.new(
+  {'name' => 'Bryan The Bandit',
+  'species' => 'Human',
+  'bounty_value' => '5000',
+  'favourite_weapon' => 'Knife'}
+)
+
+bounty9.save
+bounty10.save
+
+p Bounty.all.first
 
 
 binding.pry
