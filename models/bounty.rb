@@ -75,9 +75,9 @@ class Bounty
     sql = 'SELECT * FROM bounties WHERE id = $1'
     values = [id]
     db.prepare('find', sql)
-    found_bounty = db.exec_prepared('find', values)
+    found_item = db.exec_prepared('find', values)
     db.close
-    return found_bounty.map { |item| Bounty.new(item)}[0]
+    return found_item.map { |item| Bounty.new(item)}[0]
   end
 
 
