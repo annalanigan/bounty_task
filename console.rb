@@ -26,7 +26,7 @@ bounty4 = Bounty.new(
   {'name' => 'Shockolate Santa',
   'species' => 'Festive Demon',
   'bounty_value' => '1',
-  'favourite_weapon' => 'Bag Of Electrified Presents'}
+  'favourite_weapon' => 'Bag Of  Electrified Presents'}
 )
 
 bounty5 = Bounty.new(
